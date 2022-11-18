@@ -6,26 +6,29 @@ export default function useAuth(code) {
   const[expiresIn, setExpiresIn] = useState()
 
   useEffect(() => {
-    axios.post('https://new-project-2.vercel.app:3001/login', {
-        code,
+    if (!refreshToken || !expiresIn) return
+    const interval = setInterval(() =>{
 
-    }).then(res => {
+  
+    axios.post('https://new-project-2.vercel.app:3001/refresh', {
+        refreshToken,
+     })
+    .then(res => {
         setAccessToken(res.data.accessToken)
         setRefreshToken(res.data.refreashToken)
         setExpiresIn(res.data.expiresIn)
-
         window.history.pushState({}, null,'/')
     })
+    
+        
     .catch(() => {
         window.location = '/'
     })
-    
-    
-      }, [code])
+ }, (expiresIn - 60) *1000)
 
-      useEffect(() => {
+ return () => clearInterval(interval)
 
-      }, [refreshToken, expiresIn])
+    } [refreshToken, expiresIn])
 
     return accessToken
 
