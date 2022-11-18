@@ -11,7 +11,7 @@ export default function useAuth(code) {
 
     }).then(res => {
         setAccessToken(res.data.accessToken)
-        setRefeshToken(res.data.refreashToken)
+        setRefreshToken(res.data.refreashToken)
         setExpiresIn(res.data.expiresIn)
 
         window.history.pushState({}, null,'/')
@@ -22,5 +22,11 @@ export default function useAuth(code) {
     
     
       }, [code])
+
+      useEffect(() => {
+
+      }, [refreshToken, expiresIn])
+
+    return accessToken
+
 }
-return acessToken
