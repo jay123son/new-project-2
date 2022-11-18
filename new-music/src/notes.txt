@@ -1,0 +1,55 @@
+import { useState } from 'react'
+import useAuth from './useAuth'
+import { Container, From } from 'react-bootstrap'
+
+ function Dashboard({code}) {
+    const accessToken = useAuth(code)
+    const [search, setSearch] = useState('')
+  return <Container>
+    <From.Control Type="search" placeholder="Search Songs/Artists" value={search} onChange={e => setSearch(e.target.value)} />
+    </Container>
+  
+}
+export default Dashboard
+
+
+---------------------------------------------
+//useAuth
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+export default function useAuth(code) {
+  const[accessToken, setAccessToken] = useState()
+  const[refreshToken, setRefreshToken] = useState()
+  const[expiresIn, setExpiresIn] = useState()
+
+  useEffect(() => {
+    if (!refreshToken || !expiresIn) return
+    const interval = setInterval(() =>{
+
+  
+    axios.post('https://new-project-2.vercel.app:3001/refresh', {
+        refreshToken,
+     })
+    .then(res => {
+        setAccessToken(res.data.accessToken)
+        setRefreshToken(res.data.refreashToken)
+        setExpiresIn(res.data.expiresIn)
+        window.history.pushState({}, null,'/')
+    })
+    
+        
+    .catch(() => {
+        window.location = '/'
+    })
+ }, (expiresIn - 60) *1000)
+
+ return () => clearInterval(interval)
+
+    } [refreshToken, expiresIn])
+
+    return accessToken
+
+}
+-------------------------------
+
+const AUTH_URL = 'https://accounts.spotify.com/authorize?client_id=a32f4a292b934265b25286c4ce51835c&response_type=code&redirect_uri=https://new-project-2.vercel.app&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state' 
