@@ -10,9 +10,9 @@ export default function useAuth(code) {
         code,
 
     }).then(res => {
-        
+        console.log(res.data)
     })
     
-     effect
+    
       }, [code])
 }
