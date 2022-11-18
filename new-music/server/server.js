@@ -6,7 +6,7 @@ const app = express();
 app.post('/login', (req, res) => {
     const code = req.body.code
     const spotifyWebApi = new SpotifyWebApi({
-        redirectUri: 'http://localhost:3000',
+        redirectUri: 'https://new-project-2-nlx0d18v6-jay123son.vercel.app',
         clientId: 'a32f4a292b934265b25286c4ce51835c',
         clientSecret: '355170b1e04e4b05bed9865bd42628c5',
     })
