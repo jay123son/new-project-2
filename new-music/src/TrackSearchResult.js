@@ -17,3 +17,4 @@ export default function TrackSearchResult({ track, chooseTrack }) {
     </div>
   )
 }
+
