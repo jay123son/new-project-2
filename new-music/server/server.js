@@ -3,7 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const SpotifyWebApi = require('spotify-web-api-node');
 const spotifyWebApi = new SpotifyWebApi({
-    redirectUri: 'https://new-project-2.vercel.app',
+    redirectUri: 'http://localhost:3000',
     clientId: 'a32f4a292b934265b25286c4ce51835c',
     clientSecret: '355170b1e04e4b05bed9865bd42628c5',
     refreshToken,
@@ -38,7 +38,7 @@ app.post('/refresh', (req, res) => {
 app.post('/login', (req, res) => {
     const code = req.body.code
     const spotifyWebApi = new SpotifyWebApi({
-        redirectUri: 'https://new-project-2.vercel.app',
+        redirectUri: 'http://localhost:3000',
         clientId: 'a32f4a292b934265b25286c4ce51835c',
         clientSecret: '355170b1e04e4b05bed9865bd42628c5',
     })

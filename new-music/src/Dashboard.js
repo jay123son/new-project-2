@@ -12,7 +12,7 @@ const spotifyApi = new SpotifyWebApi({
 
 export default function Dashboard({ code }) {
   const accessToken = useAuth(code)
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("search")
   const [searchResults, setSearchResults] = useState([])
   const [playingTrack, setPlayingTrack] = useState()
   const [lyrics, setLyrics] = useState("")
@@ -27,7 +27,7 @@ export default function Dashboard({ code }) {
     if (!playingTrack) return
 
     axios
-      .get("https://new-project-2.vercel.app:3001/lyrics", {
+      .get("http://localhost:3000/lyrics", {
         params: {
           track: playingTrack.title,
           artist: playingTrack.artist,
@@ -72,7 +72,7 @@ export default function Dashboard({ code }) {
 
     return () => (cancel = true)
   }, [search, accessToken])
-
+console.log(search)
   return (
     <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
       <Form.Control
@@ -80,6 +80,7 @@ export default function Dashboard({ code }) {
         placeholder="Search Songs/Artists"
         value={search}
         onChange={e => setSearch(e.target.value)}
+        
       />
       <div className="flex-grow-1 my-2" style={{ overflowY: "auto" }}>
         {searchResults.map(track => (
