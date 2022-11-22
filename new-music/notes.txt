@@ -90,3 +90,5 @@ const AUTH_URL = 'https://accounts.spotify.com/authorize?client_id=a32f4a292b934
    .post("https://new-project-2.vercel.app:3001/refresh", {
 
      redirectUri: 'https://new-project-2.vercel.app',
+
+      .post("https://new-project-2.vercel.app:3001/refresh", {
