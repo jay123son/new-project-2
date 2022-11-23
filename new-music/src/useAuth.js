@@ -12,7 +12,12 @@ export default function useAuth(code) {
     axios
     .post("https://new-project-2-jhdy.vercel.app/refresh", {
         code,
-      })
+      },{headers: {
+        // 'application/json' is the modern content-type for JSON, but some
+        // older servers may use 'text/json'.
+        // See: http://bit.ly/text-json
+        'content-type': 'application/json'
+      }})
       .then(res => {
        
         setAccessToken(res.data.accessToken)
@@ -31,7 +36,12 @@ export default function useAuth(code) {
       axios
       .post("https://new-project-2-jhdy.vercel.app/refresh", {
           refreshToken,
-        })
+        },{headers: {
+            // 'application/json' is the modern content-type for JSON, but some
+            // older servers may use 'text/json'.
+            // See: http://bit.ly/text-json
+            'content-type': 'application/json'
+          }})
         .then(res => {
           setAccessToken(res.data.accessToken)
           setExpiresIn(res.data.expiresIn)
