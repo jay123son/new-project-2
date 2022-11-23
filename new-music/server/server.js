@@ -23,8 +23,8 @@ app.post('/refresh', (req, res) => {
         })
 
             spotifyWebApi.setAccessToken(data.body['access_token']);
-         }) .catch(() => {
-            res.sendStatus(400)
+         }) .catch((err) => {
+            res.sendStatus(err)
         })
 })
 
