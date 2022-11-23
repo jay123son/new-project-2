@@ -4,7 +4,9 @@ const bodyParser = require('body-parser');
 const SpotifyWebApi = require('spotify-web-api-node');
 
 const app = express();
-app.use(cors())
+app.use(cors({
+    origin: 'https://new-project-2.vercel.app'
+  }))
 app.use(bodyParser.json());
 
 app.post('/refresh', (req, res, next) => {
