@@ -7,7 +7,7 @@ const app = express();
 app.use(cors())
 app.use(bodyParser.json());
 
-app.post('/refresh', (req, res) => {
+app.post('/refresh', (req, res, next) => {
     const refreshToken = req.body.refreshToken
     const spotifyWebApi = new SpotifyWebApi({
         redirectUri: 'https://new-project-2.vercel.app',
@@ -28,7 +28,7 @@ app.post('/refresh', (req, res) => {
         })
 })
 
-app.post('/login', (req, res) => {
+app.post('/login', (req, res, next) => {
     const code = req.body.code
     const spotifyWebApi = new SpotifyWebApi({
         redirectUri: 'https://new-project-2.vercel.app',
