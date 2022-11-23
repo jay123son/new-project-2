@@ -22,14 +22,11 @@ app.post('/refresh', (req, res) => {
                 expiresIn: data.body.expiresIn,
         })
     
-            
-    
             spotifyWebApi.setAccessToken(data.body['access_token']);
          }) .catch(() => {
             res.sendStatus(400)
         })
 })
-
 
 app.post('/login', (req, res) => {
     const code = req.body.code
