@@ -21,7 +21,7 @@ app.post('/refresh', (req, res) => {
                 access_token: data.body.accessToken,
                 expiresIn: data.body.expiresIn,
         })
-    
+
             spotifyWebApi.setAccessToken(data.body['access_token']);
          }) .catch(() => {
             res.sendStatus(400)

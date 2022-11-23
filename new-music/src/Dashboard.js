@@ -11,7 +11,7 @@ const spotifyApi = new SpotifyWebApi({
 })
 
 export default function Dashboard({ code }) {
-    console.log("code in dash", code)
+    
   const accessToken = useAuth(code)
   const [search, setSearch] = useState("search")
   const [searchResults, setSearchResults] = useState([])
@@ -45,13 +45,13 @@ export default function Dashboard({ code }) {
   }, [accessToken])
 
   useEffect(() => {
-    console.log('line 47', accessToken)
+   
     if (!search) return setSearchResults([])
     if (!accessToken) return
-console.log("line 49")
+
     let cancel = false
     spotifyApi.searchTracks(search).then(res => {
-        console.log("res", res)
+        
       if (cancel) return
       setSearchResults(
         res.body.tracks.items.map(track => {
@@ -75,7 +75,7 @@ console.log("line 49")
 
     return () => (cancel = true)
   }, [search, accessToken])
-console.log(search)
+
   return (
     <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
       <Form.Control
