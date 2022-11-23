@@ -28,7 +28,7 @@ export default function Dashboard({ code }) {
     if (!playingTrack) return
 
     axios
-      .get("http://localhost:3000/lyrics", {
+    .get("https://new-project-2.vercel.app:3001/lyrics", {
         params: {
           track: playingTrack.title,
           artist: playingTrack.artist,
