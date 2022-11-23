@@ -19,4 +19,3 @@ export default function Player({ accessToken, trackUri }) {
     
   
 }
-// add correct links back
