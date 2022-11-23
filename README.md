@@ -8,7 +8,7 @@ This is a music player app. All you need to do is search for your favorite artis
 
 - [github repo](https://github.com/jay123son/new-project-2)
 - [deployment](https://vercel.com/jay123son/new-project-2)
-- [demo recording](https://youtu.be/Q6iQdEgkmjg)
+- [demo recording](https://youtu.be/bnt4WJpLFsY)
 
 ## Wireframes & React Component Hierarchy
 
