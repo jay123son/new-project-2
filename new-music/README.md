@@ -31,4 +31,7 @@ My post MVP was to be able to do things like 'heart' or 'favorite' songs and mak
 
 #### PostMVP EXAMPLE
 
-- Add localStorage or firebase (or similar) for storage
+- Add lyrics to the songs. (didnt get to this.)
+
+#### Credit
+[link]()
