@@ -10,7 +10,7 @@ export default function useAuth(code) {
 
   useEffect(() => {
     axios
-    .post("https://new-project-2.vercel.app:3001/refresh", {
+    .post("grotesque-answer.surge.sh/refresh", {
         code,
       })
       .then(res => {
@@ -29,7 +29,7 @@ export default function useAuth(code) {
     if (!refreshToken || !expiresIn) return
     const interval = setInterval(() => {
       axios
-      .post("https://new-project-2.vercel.app:3001/refresh", {
+      .post("grotesque-answer.surge.sh/refresh", {
           refreshToken,
         })
         .then(res => {

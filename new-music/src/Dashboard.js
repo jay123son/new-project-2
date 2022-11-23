@@ -28,7 +28,7 @@ export default function Dashboard({ code }) {
     if (!playingTrack) return
 
     axios
-    .get("https://new-project-2.vercel.app:3001/lyrics", {
+    .get("grotesque-answer.surge.sh/lyrics", {
         params: {
           track: playingTrack.title,
           artist: playingTrack.artist,
