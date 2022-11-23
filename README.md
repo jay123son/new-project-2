@@ -16,6 +16,7 @@ Upload images of wireframes and component hierarchy to cloudinary (or similar) a
 
 - [wireframes](<img width="549" alt="Screenshot 2022-11-23 at 1 27 09 PM" src="https://user-images.githubusercontent.com/114092414/203621524-bea438ba-c6f0-4a5c-b709-7a0842d0369e.png">
 )
+<img width="549" alt="Screenshot 2022-11-23 at 1 27 09 PM" src="https://user-images.githubusercontent.com/114092414/203623816-3b326589-7a77-4c6a-ba0f-71a2992c03f8.png">
 
 [Link to Watch Presentation](https://youtu.be/bnt4WJpLFsY)
 
@@ -27,9 +28,8 @@ My MVP goal was to be able to search for songs and add start to listen to them.
 My post MVP was to be able to do things like 'heart' or 'favorite' songs and make them into playlists.
 
 #### MVP EXAMPLE
-- Find and use external api 
-- Render data on page 
-- Allow user to interact with the page
+<img width="1041" alt="Screenshot 2022-11-23 at 1 40 43 PM" src="https://user-images.githubusercontent.com/114092414/203623776-2711205c-5f68-4b0a-8a60-d3a0ef44710e.png">
+
 
 #### PostMVP EXAMPLE
 
