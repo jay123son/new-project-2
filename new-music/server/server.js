@@ -47,5 +47,11 @@ app.post('/login', (req, res) => {
         res.sendStatus(400)
     })
 })
+app.get("/hi", (req, res) => {
+    res.json({
+        message: "Hello World!"
+    })
+})
+
 const port = process.env.PORT || 3001;
 app.listen(port)
