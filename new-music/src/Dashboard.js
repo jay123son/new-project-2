@@ -11,7 +11,7 @@ const spotifyApi = new SpotifyWebApi({
 })
 
 export default function Dashboard({ code }) {
-    
+   
   const accessToken = useAuth(code)
   const [search, setSearch] = useState("search")
   const [searchResults, setSearchResults] = useState([])
@@ -105,6 +105,5 @@ export default function Dashboard({ code }) {
     </Container>
   )
 }
-
 
 

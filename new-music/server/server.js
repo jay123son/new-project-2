@@ -3,13 +3,16 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const SpotifyWebApi = require('spotify-web-api-node');
 
+
+    
+
+ 
+
 const app = express();
-app.use(cors({
-    origin: 'https://new-project-2.vercel.app'
-  }))
+app.use(cors())
 app.use(bodyParser.json());
 
-app.post('/refresh', (req, res, next) => {
+app.post('/refresh', (req, res) => {
     const refreshToken = req.body.refreshToken
     const spotifyWebApi = new SpotifyWebApi({
         redirectUri: 'https://new-project-2.vercel.app',
@@ -23,14 +26,17 @@ app.post('/refresh', (req, res, next) => {
                 access_token: data.body.accessToken,
                 expiresIn: data.body.expiresIn,
         })
-
+    
+            
+    
             spotifyWebApi.setAccessToken(data.body['access_token']);
-         }) .catch((err) => {
-            res.sendStatus(err)
+         }) .catch(() => {
+            res.sendStatus(400)
         })
 })
 
-app.post('/login', (req, res, next) => {
+
+app.post('/login', (req, res) => {
     const code = req.body.code
     const spotifyWebApi = new SpotifyWebApi({
         redirectUri: 'https://new-project-2.vercel.app',
@@ -49,11 +55,5 @@ app.post('/login', (req, res, next) => {
         res.sendStatus(400)
     })
 })
-app.get("/hi", (req, res) => {
-    res.json({
-        message: "Hello World!"
-    })
-})
 
-const port = process.env.PORT || 3001;
-app.listen(port)
+app.listen(3001)
